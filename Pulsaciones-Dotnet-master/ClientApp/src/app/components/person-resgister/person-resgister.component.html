@@ -1,0 +1,43 @@
+<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+<h1>REGISTRO</h1>
+<div class="center-content">
+    <form [formGroup]="personForm" (ngSubmit)="onSubmit()" style="width: 70%;"> 
+        <div class="form-element">
+            <label for="id">Id</label>
+            <input type="text" name="id" id="id" class="form-input" formControlName="personId">
+            <small class="form-help">Ingresa tu id</small>
+        </div>
+        <div class="form-element">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name" class="form-input" formControlName="personName">
+            <small class="form-help">ingresa tu nombre</small>
+        </div>
+        <div class="form-element">
+            <label for="age">edad</label>
+            <input type="number" name="age" id="age" class="form-input" formControlName="personAge">
+            <small class="form-help">ingresa tu edad</small>
+        </div>
+        <div class="form-element form-check">
+            <label><span style="margin-right: 10px;">Sexo:</span>
+                <input type="radio" name="sex" id="female" value="F" class="form-check" formControlName="personSex">
+                <label for="female">Mujer</label>
+                <input type="radio" name="sex" id="male" value="M" class="form-check" formControlName="personSex">
+                <label for="male">Hombre</label>
+            </label>
+        </div>
+        <div class="form-element">
+            <span>Pulsaciones: {{ pulsations }}</span> 
+        </div>
+        <div class="center-content">
+            <button type="submit" class="dodger_black">Registrar persona</button>
+            <button type="button" class="dodger_black" (click)="calculatePulsations()">Calcular pulsaciones</button>
+        </div>
+        <div class="center-content" *ngIf="invalidForm">
+            <div class="information-block error-block">
+                <span class="message">
+                    Error.
+                </span>
+            </div>
+        </div>
+    </form>
+</div>
